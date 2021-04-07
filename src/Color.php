@@ -1,6 +1,6 @@
 <?php
 
-namespace LukaPeharda\TailwindCssColorPalleteGenerator;
+namespace LukaPeharda\TailwindCssColorPaletteGenerator;
 
 class Color
 {

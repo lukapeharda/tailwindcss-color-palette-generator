@@ -1,8 +1,8 @@
 <?php
 
-namespace LukaPeharda\TailwindCssColorPalleteGenerator;
+namespace LukaPeharda\TailwindCssColorPaletteGenerator;
 
-class PalleteGenerator
+class PaletteGenerator
 {
     /**
      * @var Color
@@ -35,7 +35,7 @@ class PalleteGenerator
     protected $colorSteps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
     /**
-     * Set pallete base color. Hue, saturation and lightness will be
+     * Set palette base color. Hue, saturation and lightness will be
      * calculated from this color.
      *
      * @param   Color  $color
@@ -50,7 +50,7 @@ class PalleteGenerator
     }
 
     /**
-     * Set base color value from TailwindCSS pallete steps range.
+     * Set base color value from TailwindCSS palette steps range.
      *
      * By default set to 500.
      *
@@ -105,7 +105,7 @@ class PalleteGenerator
     }
 
     /**
-     * Generate pallete.
+     * Generate palette.
      *
      * HSL values will be read from the base color.
      *
@@ -114,51 +114,51 @@ class PalleteGenerator
      *
      * @return  array
      */
-    protected function generatePallete(): array
+    protected function generatePalette(): array
     {
         $baseColorHsl = $this->baseColor->getHsl();
 
-        $pallete = [];
+        $palette = [];
 
         $lighterSteps = $this->getLighterSteps();
 
         $lighterRangeStep = ($this->thresholdLightest - $baseColorHsl[Color::LIGHTNESS]) / count($lighterSteps);
 
         foreach (array_reverse($lighterSteps) as $index => $step) {
-            $pallete[$step] = Color::fromHsl(
+            $palette[$step] = Color::fromHsl(
                 $baseColorHsl[Color::HUE],
                 $baseColorHsl[Color::SATURATION],
                 $baseColorHsl[Color::LIGHTNESS] + ($lighterRangeStep * ($index + 1)),
             );
         }
 
-        $pallete = array_reverse($pallete, true);
+        $palette = array_reverse($palette, true);
 
-        $pallete[$this->baseValue] = $this->baseColor;
+        $palette[$this->baseValue] = $this->baseColor;
 
         $darkerSteps = $this->getDarkerSteps();
 
         $darkerRangeStep = ($baseColorHsl[Color::LIGHTNESS] - $this->thresholdDarkest) / count($darkerSteps);
 
         foreach ($darkerSteps as $index => $step) {
-            $pallete[$step] = Color::fromHsl(
+            $palette[$step] = Color::fromHsl(
                 $baseColorHsl[Color::HUE],
                 $baseColorHsl[Color::SATURATION],
                 $baseColorHsl[Color::LIGHTNESS] - ($darkerRangeStep * ($index + 1)),
             );
         }
 
-        return $pallete;
+        return $palette;
     }
 
     /**
-     * Return pallete as array.
+     * Return palette as array.
      *
      * @return  array
      */
-    public function getPallete(): array
+    public function getPalette(): array
     {
-        return $this->generatePallete();
+        return $this->generatePalette();
     }
 
     /**

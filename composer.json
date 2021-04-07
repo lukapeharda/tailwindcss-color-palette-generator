@@ -1,8 +1,8 @@
 {
-    "name": "lukapeharda/tailwindcss-color-pallete-generator",
-    "description": "Generate TailwindCSS color pallete from a single color.",
+    "name": "lukapeharda/tailwindcss-color-palette-generator",
+    "description": "Generate TailwindCSS color palette from a single color.",
     "license": "MIT",
-    "keywords": ["tailwindcss", "color", "pallete", "generator"],
+    "keywords": ["tailwindcss", "color", "palette", "generator"],
     "authors": [
         {
             "name": "Luka Peharda",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LukaPeharda\\TailwindCssColorPalleteGenerator\\": "src/"
+            "LukaPeharda\\TailwindCssColorPaletteGenerator\\": "src/"
         }
     },
     "minimum-stability": "dev"
