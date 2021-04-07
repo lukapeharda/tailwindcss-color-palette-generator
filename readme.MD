@@ -8,7 +8,7 @@ Uses HSL color model and base color lightness to generate step colors by raising
 
 Install it via composer by running:
 
-`composer install lukapeharda/tailwindcss-color-pallete-generator`
+`composer require lukapeharda/tailwindcss-color-pallete-generator`
 
 ## Usage
 
