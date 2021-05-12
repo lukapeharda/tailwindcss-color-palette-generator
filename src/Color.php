@@ -118,6 +118,16 @@ class Color
     }
 
     /**
+     * Return color as RGB array.
+     *
+     * @return  array
+     */
+    public function getRgb(): array
+    {
+        return array_map("hexdec", str_split($this->getHex(), 2));
+    }
+
+    /**
      * Convert hex string to HSL.
      *
      * @param   string  $hex
@@ -127,9 +137,9 @@ class Color
     protected function hexToHsl(string $hex): array
     {
         if (strpos($hex, '#') === 0) {
-            $hex = array($hex[1].$hex[2], $hex[3].$hex[4], $hex[5].$hex[6]);
+            $hex = [$hex[1].$hex[2], $hex[3].$hex[4], $hex[5].$hex[6]];
         } else {
-            $hex = array($hex[0].$hex[1], $hex[2].$hex[3], $hex[4].$hex[5]);
+            $hex = [$hex[0].$hex[1], $hex[2].$hex[3], $hex[4].$hex[5]];
         }
 
         $rgb = array_map(function($part) {
@@ -162,7 +172,7 @@ class Color
             $h /= 6;
         }
 
-        return array($h, $s, $l);
+        return [$h, $s, $l];
     }
 
     /**
