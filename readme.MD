@@ -60,6 +60,33 @@ foreach ($palette as $key => $color) {
 }
 ```
 
+Extend color settings in your `tailwind.config.js` file and add `primary` color pallete:
+
+```js
+module.exports = {
+    theme: {
+        extend: {
+            colors: {
+                primary: {
+                    50: 'var(--color-primary-50, #F5F3FF)',
+                    100: 'var(--color-primary-100, #EDE9FE)',
+                    200: 'var(--color-primary-200, #DDD6FE)',
+                    300: 'var(--color-primary-300, #C4B5FD)',
+                    400: 'var(--color-primary-400, #A78BFA)',
+                    500: 'var(--color-primary-500, #8B5CF6)',
+                    600: 'var(--color-primary-600, #7C3AED)',
+                    700: 'var(--color-primary-700, #6D28D9)',
+                    800: 'var(--color-primary-800, #5B21B6)',
+                    900: 'var(--color-primary-900, #4C1D95)',
+                }
+            }
+        }
+    }
+}
+```
+
+Afterwards you can use your color as regular CSS Tailwind class, for example as `text-primary-100` or `bg-primary-300`.
+
 ## Defaults
 
 `PaletteGenerator` class has some configurable options set to a sensible defaults.
