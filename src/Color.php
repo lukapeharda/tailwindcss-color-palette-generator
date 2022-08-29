@@ -82,7 +82,7 @@ class Color
     {
         $color = new Color;
 
-        $color->hex = $this->rgbComponentToHex($red) . $this->rgbComponentToHex($green) . $this->rgbComponentToHex($blue);
+        $color->hex = $color->rgbComponentToHex($red) . $color->rgbComponentToHex($green) . $color->rgbComponentToHex($blue);
 
         return $color;
     }
