@@ -196,9 +196,9 @@ class Color
             $q = $l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s;
             $p = 2 * $l - $q;
 
-            $r = (int) $this->hueToRgb($p, $q, $h + 1/3);
-            $g = (int) $this->hueToRgb($p, $q, $h);
-            $b = (int) $this->hueToRgb($p, $q, $h - 1/3);
+            $r = $this->hueToRgb($p, $q, $h + 1/3);
+            $g = $this->hueToRgb($p, $q, $h);
+            $b = $this->hueToRgb($p, $q, $h - 1/3);
         }
 
         return $this->rgbComponentToHex($r) . $this->rgbComponentToHex($g) . $this->rgbComponentToHex($b);
@@ -227,13 +227,13 @@ class Color
     /**
      * Convert RGB's value to hex.
      *
-     * @param   int     $rgb
+     * @param   float     $rgb
      *
      * @return  string
      */
-    protected function rgbComponentToHex(int $rgb): string
+    protected function rgbComponentToHex(float $rgb): string
     {
-        return str_pad(dechex($rgb * 255), 2, '0', STR_PAD_LEFT);
+        return str_pad(dechex((int) ($rgb * 255)), 2, '0', STR_PAD_LEFT);
     }
 
     /**
